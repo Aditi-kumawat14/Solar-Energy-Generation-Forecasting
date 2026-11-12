@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solar Energy Generation Forecasting</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <div class="logo">
+            ☀️ Solar Energy Forecasting
+        </div>
+
+        <nav>
+            <a href="#predict" class="active">⌂ Predict</a>
+            
+        </nav>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Solar Energy Generation
+                <span>Forecasting</span>
+            </h1>
+
+            <p>
+                Predict solar power generation using weather
+                and time parameters
+            </p>
+
+            <div class="green-line"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+
+        <!-- Left Side: Input Form -->
+        <section class="input-card" id="predict">
+
+            <div class="section-heading">
+
+                <div class="heading-icon">
+                    ⚙️
+                </div>
+
+                <div>
+                    <h2>Input Parameters</h2>
+
+                    <p>
+                        Enter the weather and time details
+                        to predict solar power generation
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Prediction Form -->
+            <form id="predictionForm">
+
+                <div class="input-grid">
+
+
+                    <!-- POA Irradiance -->
+                    <div class="form-group">
+
+                        <label for="poa">
+                            ☀️ POA Irradiance (W/m²)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="poa"
+                            name="poa_irradiance_wm2"
+                            min="0"
+                            step="any"
+                            value="800"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- GHI Irradiance -->
+                    <div class="form-group">
+
+                        <label for="ghi">
+                            ☀️ GHI Irradiance (W/m²)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ghi"
+                            name="ghi_irradiance_wm2"
+                            min="0"
+                            step="any"
+                            value="700"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Ambient Temperature -->
+                    <div class="form-group">
+
+                        <label for="ambient">
+                            🌡️ Ambient Temperature (°C)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ambient"
+                            name="ambient_temperature_celsius"
+                            step="any"
+                            value="30"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Panel Temperature -->
+                    <div class="form-group">
+
+                        <label for="panel">
+                            🌡️ Panel Temperature (°C)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="panel"
+                            name="panel_temperature_celsius"
+                            step="any"
+                            value="40"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Wind Speed -->
+                    <div class="form-group">
+
+                        <label for="wind">
+                            💨 Wind Speed (m/s)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="wind"
+                            name="wind_speed_ms"
+                            min="0"
+                            step="any"
+                            value="3"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Hour -->
+                    <div class="form-group">
+
+                        <label for="hour">
+                            🕒 Hour (0–23)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="hour"
+                            name="hour"
+                            min="0"
+                            max="23"
+                            value="12"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Day -->
+                    <div class="form-group">
+
+                        <label for="day">
+                            📅 Day (1–31)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="day"
+                            name="day"
+                            min="1"
+                            max="31"
+                            value="15"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Month -->
+                    <div class="form-group">
+
+                        <label for="month">
+                            📆 Month (1–12)
+                        </label>
+
+                        <select
+                            id="month"
+                            name="month"
+                            required
+                        >
+
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+
+                            <option value="5" selected>
+                                May
+                            </option>
+
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Day of Week -->
+                    <div class="form-group">
+
+                        <label for="day_of_week">
+                            📅 Day of Week
+                        </label>
+
+                        <select
+                            id="day_of_week"
+                            name="day_of_week"
+                            required
+                        >
+
+                            <option value="0">Monday</option>
+                            <option value="1">Tuesday</option>
+
+                            <option value="2" selected>
+                                Wednesday
+                            </option>
+
+                            <option value="3">Thursday</option>
+                            <option value="4">Friday</option>
+                            <option value="5">Saturday</option>
+                            <option value="6">Sunday</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Predict Button -->
+                <button
+                    type="submit"
+                    id="predictButton"
+                >
+                    ⚡ Predict Solar Power
+                </button>
+
+
+                <!-- Error Message -->
+                <p
+                    id="errorMessage"
+                    class="error-message"
+                ></p>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- Right Side -->
+        <section class="right-section">
+
+
+            <!-- Prediction Result Card -->
+            <div class="result-card">
+
+                <h2>
+                    📊 Predicted Solar Power Generation
+                </h2>
+
+                <div class="solar-result">
+                    ☀️
+                </div>
+
+
+                <!-- Prediction in Watts -->
+                <div
+                    id="resultValue"
+                    class="result-value"
+                >
+                    -- W
+                </div>
+
+
+                <!-- Prediction in kW and MW -->
+                <div
+                    id="resultKW"
+                    class="result-kw"
+                >
+                    Waiting for prediction
+                </div>
+
+
+                <p
+                    id="resultStatus"
+                    class="result-status"
+                >
+                    Enter your details and click Predict
+                </p>
+
+            </div>
+
+
+
+            <!-- About Prediction -->
+            <div
+                class="about-card"
+                id="about"
+            >
+
+                <h3>
+                    ⓘ About the Prediction
+                </h3>
+
+                <p>
+                    This application uses a trained Random Forest
+                    regression model to forecast solar power
+                    generation based on solar irradiance,
+                    temperature, wind speed and time features.
+                </p>
+
+            </div>
+
+
+
+            <!-- Highlights -->
+            <div
+                class="highlights"
+                id="insights"
+            >
+
+                <div>
+                    <span>🌿</span>
+                    <strong>Clean Energy</strong>
+                </div>
+
+                <div>
+                    <span>📊</span>
+                    <strong>Data Driven</strong>
+                </div>
+
+                <div>
+                    <span>🎯</span>
+                    <strong>ML Based</strong>
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    
+<!-- Footer -->
+<footer id="dataset">
+
+    <p>
+        Solar Energy Generation Forecasting
+    </p>
+
+    <p id="model">
+        Powered by Random Forest, FastAPI
+        and BR-PVGen Dataset
+    </p>
+
+    <p class="copyright">
+        Developed by <strong>Aditi Kumawat</strong>
+    </p>
+
+</footer>
+
+
+
+
+    <!-- JavaScript File -->
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

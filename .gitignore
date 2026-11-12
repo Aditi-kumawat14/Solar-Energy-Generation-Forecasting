@@ -1,0 +1,20 @@
+
+# Ignore dashboard folder
+/dashboard/
+
+# Ignore reports folder
+/reports/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Jupyter checkpoint files
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
